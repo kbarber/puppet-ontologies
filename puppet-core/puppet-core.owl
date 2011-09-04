@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://puppetlabs.com/ontologies/puppet-core.owl#"
+     xml:base="http://puppetlabs.com/ontologies/puppet-core.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">This ontology models the core Puppet concepts.</rdfs:comment>
+        <owl:versionIRI rdf:resource="http://puppetlabs.com/ontologies/2011/7/puppet-core.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#hasFact -->
+
+    <owl:ObjectProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#hasFact">
+        <rdfs:comment rdf:datatype="&xsd;string">Points to a fact that belongs to a particular node.</rdfs:comment>
+        <rdfs:range rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#hasReport -->
+
+    <owl:ObjectProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#hasReport">
+        <rdfs:comment rdf:datatype="&xsd;string">The report associated with this entity.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+        <rdfs:range rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+        <owl:inverseOf rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#isReportOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#isFactOf -->
+
+    <owl:ObjectProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#isFactOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The node this fact instance belongs to.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <rdfs:range rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+        <owl:inverseOf rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#hasFact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#isReportOf -->
+
+    <owl:ObjectProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#isReportOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The entity this report belongs to.</rdfs:comment>
+        <rdfs:range rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <rdfs:range rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#factName -->
+
+    <owl:DatatypeProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#factName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <owl:propertyDisjointWith rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#factValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#factValue -->
+
+    <owl:DatatypeProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#factValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#nodeName -->
+
+    <owl:DatatypeProperty rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#nodeName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#Fact -->
+
+    <owl:Class rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#Fact">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#isFactOf"/>
+                <owl:onClass rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#isFactOf"/>
+                <owl:onClass rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+        <owl:disjointWith rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A Puppet fact for the node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#Node -->
+
+    <owl:Class rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#Node">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#hasReport"/>
+                <owl:someValuesFrom rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#hasFact"/>
+                <owl:someValuesFrom rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Report"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A Puppet node depicts a device which is managed by Puppet. This is usually a host or a network device.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://puppetlabs.com/ontologies/puppet-core.owl#Report -->
+
+    <owl:Class rdf:about="http://puppetlabs.com/ontologies/puppet-core.owl#Report">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#isReportOf"/>
+                <owl:someValuesFrom rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Fact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#isReportOf"/>
+                <owl:onClass rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl#Node"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A report generated from a system containing many reportable elements. This class tries to encapsulate data generated from a single data collection operation for time based analysis later.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
