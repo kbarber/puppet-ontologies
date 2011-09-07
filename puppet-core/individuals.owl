@@ -20,9 +20,20 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://puppetlabs.com/ontologies/individuals.owl">
+        <rdfs:comment>This is an example ontology.</rdfs:comment>
         <owl:imports rdf:resource="http://puppetlabs.com/ontologies/puppet-core.owl"/>
-        <owl:versionIRI rdf:resource="http://puppetlabs.com/ontologies/2011/7/individuals.owl"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
     
 
 
@@ -48,31 +59,31 @@
     
 
 
-    <!-- http://puppetlabs.com/ontologies/individuals.owl#fact:1 -->
+    <!-- http://puppetlabs.com/ontologies/individuals.owl#fact_7e4fff10-b97b-012e-2697-482a140c5d18 -->
 
-    <owl:NamedIndividual rdf:about="http://puppetlabs.com/ontologies/individuals.owl#fact:1">
+    <owl:NamedIndividual rdf:about="http://puppetlabs.com/ontologies/individuals.owl#fact_7e4fff10-b97b-012e-2697-482a140c5d18">
         <rdf:type rdf:resource="&puppet-core;Fact"/>
         <puppet-core:factValue rdf:datatype="&xsd;string">Linux</puppet-core:factValue>
         <puppet-core:factName rdf:datatype="&xsd;string">operatingsystem</puppet-core:factName>
-        <puppet-core:isFactOf rdf:resource="&node;node1.cloud.bob.sh"/>
+        <puppet-core:isFactOf rdf:resource="http://puppetlabs.com/ontologies/individuals.owl#node_node1.cloud.bob.sh"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://puppetlabs.com/ontologies/individuals.owl#fact:2 -->
+    <!-- http://puppetlabs.com/ontologies/individuals.owl#fact_8b4d1aa0-b97b-012e-2698-482a140c5d18 -->
 
-    <owl:NamedIndividual rdf:about="http://puppetlabs.com/ontologies/individuals.owl#fact:2">
+    <owl:NamedIndividual rdf:about="http://puppetlabs.com/ontologies/individuals.owl#fact_8b4d1aa0-b97b-012e-2698-482a140c5d18">
         <rdf:type rdf:resource="&puppet-core;Fact"/>
         <puppet-core:factValue rdf:datatype="&xsd;string">false</puppet-core:factValue>
         <puppet-core:factName rdf:datatype="&xsd;string">is_virtual</puppet-core:factName>
-        <puppet-core:isFactOf rdf:resource="&node;node1.cloud.bob.sh"/>
+        <puppet-core:isFactOf rdf:resource="http://puppetlabs.com/ontologies/individuals.owl#node_node1.cloud.bob.sh"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://puppetlabs.com/ontologies/individuals.owl#node:node1.cloud.bob.sh -->
+    <!-- http://puppetlabs.com/ontologies/individuals.owl#node_node1.cloud.bob.sh -->
 
-    <owl:NamedIndividual rdf:about="&node;node1.cloud.bob.sh">
+    <owl:NamedIndividual rdf:about="http://puppetlabs.com/ontologies/individuals.owl#node_node1.cloud.bob.sh">
         <rdf:type rdf:resource="&puppet-core;Node"/>
         <puppet-core:nodeName rdf:datatype="&xsd;string">node1.cloud.bob.sh</puppet-core:nodeName>
     </owl:NamedIndividual>
