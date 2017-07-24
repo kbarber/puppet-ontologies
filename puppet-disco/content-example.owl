@@ -1,0 +1,68 @@
+[ {
+  "@id" : "http://bob.sh/pupppet/content-example",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "http://bob.sh/puppet/base-types"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#apache",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Service" ],
+  "http://bob.sh/puppet/base-types#serviceManagesProcess" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#process-6712"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#mysql",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Service" ],
+  "http://bob.sh/puppet/base-types#serviceManagesProcess" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#process-459"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#process-33306",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Process" ],
+  "http://bob.sh/puppet/base-types#processOwnsSocket" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-5412"
+  }, {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-8009"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#process-459",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Process" ],
+  "http://bob.sh/puppet/base-types#processOwnsSocket" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-3306"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#process-6712",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Process" ],
+  "http://bob.sh/puppet/base-types#processOwnsSocket" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-1234"
+  }, {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-80"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#socket-1234",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Socket" ],
+  "http://bob.sh/puppet/base-types#socketConnectsToSocket" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-8009"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#socket-3306",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Socket" ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#socket-5412",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Socket" ],
+  "http://bob.sh/puppet/base-types#socketConnectsToSocket" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#socket-3306"
+  } ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#socket-80",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Socket" ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#socket-8009",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Socket" ]
+}, {
+  "@id" : "http://bob.sh/pupppet/content-example#tomcat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://bob.sh/puppet/base-types#Service" ],
+  "http://bob.sh/puppet/base-types#serviceManagesProcess" : [ {
+    "@id" : "http://bob.sh/pupppet/content-example#process-33306"
+  } ]
+} ]
