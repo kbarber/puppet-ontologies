@@ -2,6 +2,12 @@
   "@id" : "http://bob.sh/puppet/base-types",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
 }, {
+  "@id" : "http://bob.sh/puppet/base-types#Package",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
   "@id" : "http://bob.sh/puppet/base-types#Process",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
@@ -21,6 +27,69 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#packageConnectsFromPackage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#packageConnectsToPackage"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#packageConnectsToPackage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "http://bob.sh/puppet/base-types#packageOwnsService"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#serviceConnectsToService"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#serviceOwnedByPackage"
+    } ]
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#packageOwnsService",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Service"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#serviceOwnedByPackage"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#packageVersion",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceAttributes"
   } ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#processConnectsToSocket",
@@ -46,7 +115,7 @@
   } ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#processManagedByService",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://bob.sh/puppet/base-types#Process"
   } ],
@@ -74,6 +143,9 @@
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://bob.sh/puppet/base-types#socketOwnedByProcess"
   } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#resourceAttributes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#resourceRelationship",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
@@ -168,6 +240,18 @@
     } ]
   } ]
 }, {
+  "@id" : "http://bob.sh/puppet/base-types#serviceOwnedByPackage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Service"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Package"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ]
+}, {
   "@id" : "http://bob.sh/puppet/base-types#socketConnectionFromProcess",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
@@ -232,7 +316,7 @@
   } ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#socketOwnedByProcess",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://bob.sh/puppet/base-types#Socket"
   } ],
