@@ -2,6 +2,18 @@
   "@id" : "http://bob.sh/puppet/base-types",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
 }, {
+  "@id" : "http://bob.sh/puppet/base-types#Ec2Instance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#Group",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
   "@id" : "http://bob.sh/puppet/base-types#Package",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
@@ -17,6 +29,12 @@
   "@id" : "http://bob.sh/puppet/base-types#PuppetResource",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
+  "@id" : "http://bob.sh/puppet/base-types#Scope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
   "@id" : "http://bob.sh/puppet/base-types#Service",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
@@ -27,6 +45,63 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#User",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#ec2InstanceConnectionFromEc2Instance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Ec2Instance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Ec2Instance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#ec2InstanceConnectsToEc2Instance"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#ec2InstanceConnectsToEc2Instance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Ec2Instance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Ec2Instance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatesScope"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#scopeConnectsToScope"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#scopeEncapsulatedInResources"
+    } ]
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#groupHasUsers",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Group"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#User"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#userHasGroups"
   } ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#packageConnectsFromPackage",
@@ -147,8 +222,132 @@
   "@id" : "http://bob.sh/puppet/base-types#resourceAttributes",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 }, {
+  "@id" : "http://bob.sh/puppet/base-types#resourceContainedInScope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#scopeContainsResources"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatedInResources",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatesResources"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatesResources",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatesScope"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#scopeContainsResources"
+    } ]
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#resourceEncapsulatesScope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#scopeEncapsulatedInResources"
+  } ]
+}, {
   "@id" : "http://bob.sh/puppet/base-types#resourceRelationship",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#scopeConnectionFromScope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#scopeConnectsToScope"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#scopeConnectsToScope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "http://bob.sh/puppet/base-types#scopeContainsResources"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#socketConnectsToSocket"
+    }, {
+      "@id" : "http://bob.sh/puppet/base-types#resourceContainedInScope"
+    } ]
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#scopeContainsResources",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#scopeEncapsulatedInResources",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Scope"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#PuppetResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ]
 }, {
   "@id" : "http://bob.sh/puppet/base-types#serviceConnectionFromService",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
@@ -322,6 +521,18 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://bob.sh/puppet/base-types#Process"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
+  } ]
+}, {
+  "@id" : "http://bob.sh/puppet/base-types#userHasGroups",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#User"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://bob.sh/puppet/base-types#Group"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://bob.sh/puppet/base-types#resourceRelationship"
